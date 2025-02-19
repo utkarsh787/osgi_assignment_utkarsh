@@ -1,4 +1,4 @@
-package services;
+package com.ttn.demo.core.services;
 
 
 import com.ttn.demo.core.models.Students;

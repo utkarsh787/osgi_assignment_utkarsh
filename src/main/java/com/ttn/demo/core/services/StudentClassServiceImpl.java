@@ -1,8 +1,7 @@
-package services;
+package com.ttn.demo.core.services;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import com.ttn.demo.core.models.Students;
 import org.osgi.service.component.annotations.Component;
@@ -13,6 +12,17 @@ public class StudentClassServiceImpl implements StudentClassService {
 
     // In-memory list to hold students
     private final List<Students> students = new ArrayList<>();
+    public StudentClassServiceImpl() {
+        students.add(new Students(1, "Utkarsh", 85, 26));
+        students.add(new Students(2, "Adarsh", 35, 16));
+        students.add(new Students(3, "Advit", 20, 25));
+        students.add(new Students(4, "Pallavi", 80, 22));
+        students.add(new Students(5, "Rohit", 79, 21));
+        students.add(new Students(6, "Sharma", 10, 21));
+        students.add(new Students(7, "sachin", 18, 95));
+        students.add(new Students(8, "Pawan", 85, 25));
+
+    }
 
     @Reference
     private ClassConfigurationService classConfigurationService;
@@ -30,21 +40,12 @@ public class StudentClassServiceImpl implements StudentClassService {
 
     @Override
     public String deleteStudent(int id) {
-        Optional<Students> studentToRemove = students.stream().filter(s -> s.getId() == id).findFirst();
-        if (studentToRemove.isPresent()) {
-            students.remove(studentToRemove.get());
-            return "Student removed successfully";
-        }
-        return "Student not found";
+        return students.removeIf(s -> s.getId() == id) ? "Student removed successfully" : "Student not found";
     }
 
     @Override
     public boolean isStudentPassed(int id) {
-        Students student = getStudent(id);
-        if (student != null) {
-            return student.getMarks() >= classConfigurationService.getPassingMarks();
-        }
-        return false;
+        return students.stream().anyMatch(s -> s.getId() == id && s.getMarks() >= 40);
     }
 
     @Override

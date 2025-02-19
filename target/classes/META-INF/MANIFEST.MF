@@ -1,0 +1,52 @@
+Manifest-Version: 1.0
+Bundle-Category: TTN Demo
+Bundle-Description: Core bundle for TTN Demo
+Bundle-ManifestVersion: 2
+Bundle-Name: TTN Demo - Core
+Bundle-SymbolicName: ttndemo.core
+Bundle-Version: 1.0.0.SNAPSHOT
+Export-Package: com.ttn.demo.core.filters;version="1.0";uses:="javax.s
+ ervlet",com.ttn.demo.core.listeners;version="1.0";uses:="org.apache.s
+ ling.api.resource.observation",com.ttn.demo.core.models;version="1.0"
+ ;uses:="javax.annotation,org.apache.sling.api.resource,org.apache.sli
+ ng.models.annotations,org.apache.sling.models.annotations.injectorspe
+ cific",com.ttn.demo.core.schedulers;version="1.0",com.ttn.demo.core.s
+ ervlets;version="1.0";uses:="javax.servlet,org.apache.sling.api,org.a
+ pache.sling.api.servlets"
+Import-Package: javax.annotation;version="0.0.0",com.day.cq.wcm.api;ve
+ rsion="[1.31,2)",com.ttn.demo.core.filters;version="[1.0,2)",com.ttn.
+ demo.core.listeners;version="[1.0,2)",com.ttn.demo.core.models;versio
+ n="[1.0,2)",com.ttn.demo.core.schedulers;version="[1.0,2)",javax.serv
+ let;version="[3.1,4)",org.apache.sling.api;version="[2.3,3)",org.apac
+ he.sling.api.request;version="[2.7,3)",org.apache.sling.api.resource;
+ version="[2.13,3)",org.apache.sling.api.resource.observation;version=
+ "[1.2,2)",org.apache.sling.api.servlets;version="[2.4,3)",org.apache.
+ sling.models.annotations;version="[1.5,2)",org.apache.sling.models.an
+ notations.injectorspecific;version="[1.1,2)",org.slf4j;version="[1.7,
+ 2)"
+Private-Package: com.ttn.demo.core.config,com.ttn.demo.core.services
+Provide-Capability: osgi.service;objectClass:List<String>="com.ttn.dem
+ o.core.services.ClassConfigurationService";uses:="com.ttn.demo.core.s
+ ervices",osgi.service;objectClass:List<String>="com.ttn.demo.core.ser
+ vices.StudentClassService";uses:="com.ttn.demo.core.services",osgi.se
+ rvice;objectClass:List<String>="java.lang.Runnable",osgi.service;obje
+ ctClass:List<String>="javax.servlet.Filter";uses:="javax.servlet",osg
+ i.service;objectClass:List<String>="javax.servlet.Servlet";uses:="jav
+ ax.servlet",osgi.service;objectClass:List<String>="org.apache.sling.a
+ pi.resource.observation.ResourceChangeListener";uses:="org.apache.sli
+ ng.api.resource.observation"
+Require-Capability: osgi.service;filter:="(objectClass=com.ttn.demo.co
+ re.services.ClassConfigurationService)";effective:=active,osgi.servic
+ e;filter:="(objectClass=com.ttn.demo.core.services.StudentClassServic
+ e)";effective:=active,osgi.extender;filter:="(&(osgi.extender=osgi.co
+ mponent)(version>=1.4.0)(!(version>=2.0.0)))",osgi.ee;filter:="(&(osg
+ i.ee=JavaSE)(version=1.8))"
+Service-Component: OSGI-INF/com.ttn.demo.core.filters.LoggingFilter.xm
+ l,OSGI-INF/com.ttn.demo.core.listeners.SimpleResourceListener.xml,OSG
+ I-INF/com.ttn.demo.core.schedulers.SimpleScheduledTask.xml,OSGI-INF/c
+ om.ttn.demo.core.services.ClassConfigurationServiceImpl.xml,OSGI-INF/
+ com.ttn.demo.core.services.StudentClassServiceImpl.xml,OSGI-INF/com.t
+ tn.demo.core.servlets.SimpleServlet.xml,OSGI-INF/com.ttn.demo.core.se
+ rvlets.TestServlet.xml
+Sling-Model-Classes: com.ttn.demo.core.models.HelloWorldModel
+

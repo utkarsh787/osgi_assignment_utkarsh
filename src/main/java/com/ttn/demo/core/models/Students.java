@@ -15,13 +15,10 @@ public class Students {
 
     // Getters and Setters
     public int getId() { return id; }
-
-
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
 
     public int getMarks() { return marks; }
-
+    public int getAge() { return age; }
     @Override
     public String toString() {
         return "Student [id=" + id + ", name=" + name + ", marks=" + marks + ", age=" + age + "]";

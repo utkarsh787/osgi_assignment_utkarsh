@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/l10n/com.ttn.demo.core.config.ClassConfiguration">
+  <OCD id="com.ttn.demo.core.config.ClassConfiguration" name="Class Configuration" description="Configuration for class limits and passing marks">
+    <AD id="studentLimit" type="Integer" name="Student limit" default="30"/>
+    <AD id="passingMarks" type="Integer" name="Passing marks" default="40"/>
+  </OCD>
+  <Designate pid="com.ttn.demo.core.services.ClassConfigurationServiceImpl">
+    <Object ocdref="com.ttn.demo.core.config.ClassConfiguration"/>
+  </Designate>
+</metatype:MetaData>

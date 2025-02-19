@@ -6,18 +6,16 @@ import java.util.stream.Collectors;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 
-import com.day.cq.commons.jcr.JcrConstants;
 import com.ttn.demo.core.models.Students;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import services.StudentClassService;
+import com.ttn.demo.core.services.StudentClassService;
 
 @Component(service = Servlet.class)
 @SlingServletPaths(value = "/bin/ttn")
