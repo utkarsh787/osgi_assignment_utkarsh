@@ -45,7 +45,8 @@ public class StudentClassServiceImpl implements StudentClassService {
 
     @Override
     public boolean isStudentPassed(int id) {
-        return students.stream().anyMatch(s -> s.getId() == id && s.getMarks() >= 40);
+        int passingmarks= classConfigurationService.getPassingMarks();
+        return students.stream().anyMatch(s -> s.getId() == id && s.getMarks() >= passingmarks);
     }
 
     @Override
